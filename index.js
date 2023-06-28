@@ -65,7 +65,7 @@ function trying(){
     
     onValue(que,(snapshot)=>{
 
-        console.log(snapshot.val());
+        
         const div = document.createElement("p");
         const obj = snapshot.val();
         div.textContent = Object.values(obj);
@@ -118,7 +118,7 @@ signin_btn.addEventListener("click" ,()=>{
         console.log("success");
         display_signin();
         display_img(user);
-        console.log(result);
+        
         
     })
     .catch((error)=>{
@@ -149,7 +149,7 @@ window.onload = ()=>{
         if (user){
     
      
-        console.log(user);
+        
         display_signin();
         display_img(user);
         }
