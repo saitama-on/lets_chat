@@ -1,0 +1,64 @@
+/* style.css */
+
+/* Reset default margin and padding */
+body, div, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Center the content vertically and horizontally */
+  html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container styles */
+  div {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Button styles */
+  button {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Input styles */
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  /* Image styles */
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 36%;
+  }
+  
+  /* Chat styles */
+  #chat_div {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  #chat_div p {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #chat_div p:last-child {
+    margin-bottom: 0;
+  }
+  
