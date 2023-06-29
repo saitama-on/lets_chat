@@ -79,7 +79,7 @@ function trying(){
 
 function load_oldmsg(){
 
-    const newref1 = query(ref(db, "/allmessages"), limitToLast(30));
+    const newref1 = query(ref(db, "/allmessages"), limitToLast(5));
     get(newref1)
     .then((promise)=>{
 
