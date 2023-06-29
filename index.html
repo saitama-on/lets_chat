@@ -7,18 +7,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-
-        <button id="signin">Google signin</button>
-        <button id="signout">Signout</button>
-        <div id="input_div"><input id="input_msg" placeholder="type your message"> 
-        <button id="send_msg">Send</button></div>
-        <div id="img_div"><img id="img_tag" src=""><p><span id="username"></span></p>   </div>
-        <div id="chat_div">
-        <p>Yash Joshi : Hi guys kuch likho !!  </p>
+    <header id="header">
+    <button id="signin">Google signin</button>
+    <img id="img_tag" src="">
+    <button id="signout">Signout</button>
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+    </header>
+    
+        <div id="input_div">
+            <div id="img_div"><p id="host_msg">Yash Joshi : Hi guys kuch likho !! <i class="fa-solid fa-face-grin-wink" style="color: #ff8a2a;"></i> </p></div>
+            <div id="chat_div">
+        
+            </div>
+            <input id="input_msg" placeholder="type your message..."> 
+            <button id="send_msg"><i class="fa-solid fa-paper-plane fa-beat fa-sm" style="color: #ffffff;"></i></button>
         </div>
+        
     </div>
 
     <script src="index.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/5ca81e99d0.js" crossorigin="anonymous"></script>
 </body>
 </html>

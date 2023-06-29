@@ -1,6 +1,26 @@
 /* style.css */
 
 /* Reset default margin and padding */
+
+/* Default light mode styles 
+
+
+did this css using chat gpt */
+
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+.dark-mode {
+    background-color: #222222;
+    color: #ffffff;
+  }
+.dark-mode #chat_div p {
+    background-color: #444444;
+    color: #ffffff;
+  }
 body, div, p {
     margin: 0;
     padding: 0;
@@ -8,7 +28,7 @@ body, div, p {
   
   /* Center the content vertically and horizontally */
   html, body {
-    height: 100%;
+    height: 130%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,6 +54,7 @@ body, div, p {
   /* Input styles */
   input {
     padding: 10px;
+    font-size: 4vh;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
@@ -42,23 +63,73 @@ body, div, p {
   /* Image styles */
   img {
     max-width: 100%;
-    height: auto;
+    height: 5vh;
     border-radius: 36%;
   }
   
-  /* Chat styles */
-  #chat_div {
+ /* style.css */
+
+/* Add scrollable overflow to the chat_div */
+#chat_div {
     margin-top: 20px;
     text-align: left;
+    height: 200px; /* Set a fixed height for the chat_div */
+    overflow-y: scroll; /* Enable vertical scrollbar */
   }
   
   #chat_div p {
     background-color: #f1f1f1;
+    color: #000000;
     padding: 10px;
     margin-bottom: 10px;
+    border-radius: 4vh;
+    max-width: fit-content;
   }
   
   #chat_div p:last-child {
     margin-bottom: 0;
   }
   
+/* style.css */
+
+#host_msg {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 2px;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+
+#host_msg:before {
+  content: "Host Message: ";
+  font-weight: bold;
+  color: #555;
+}
+
+#host_msg {
+  background-color: #fce4ec;
+  color: #d81b60;
+  border: 2px solid #d81b60;
+}
+
+@media only screen and (max-width: 400px) {
+
+    #header{
+
+        width: min-content;
+    }
+
+    input{
+
+        font-size:2vh ;
+    }
+
+    button{
+
+        padding: 1px;
+    }
+}

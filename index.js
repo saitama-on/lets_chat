@@ -28,14 +28,14 @@ let input_div = document.getElementById("input_div");
 let chat_div = document.getElementById("chat_div");
 let id = "empty";
 let img_tag = document.getElementById("img_tag");
-let username = document.getElementById("username");
+//let username = document.getElementById("username");
 
 signout_btn.style.display = "none";
 signin_btn.style.display = "none";
 input_div.style.display = "none";
 chat_div.style.display = "none";
 img_tag.style.display = "none";
-username.style.display = "none";
+//username.style.display = "none";
 
 const db = getDatabase(app);
 
@@ -71,10 +71,26 @@ function trying(){
         div.textContent = Object.values(obj);
 
         chat_div.appendChild(div);
-    })
 
-    
-    
+        chat_div.scrollTop = chat_div.scrollHeight;
+    })    
+}
+
+
+function load_oldmsg(){
+
+    const newref1 = query(ref(db, "/allmessages"), limitToLast(30));
+    get(newref1)
+    .then((promise)=>{
+
+        promise.forEach((promise)=>{
+            const new_element = document.createElement("p");
+            new_element.textContent = promise.val();
+            chat_div.appendChild(new_element);
+            
+            chat_div.scrollTop = chat_div.scrollHeight;
+        });
+    })
 }
 
 function display_signin(){
@@ -83,7 +99,7 @@ function display_signin(){
     input_div.style.display = "block";
     chat_div.style.display = "block";
     img_tag.style.display = "block";
-    username.style.display = "block";
+    //username.style.display = "block";
 
 }
 
@@ -94,7 +110,7 @@ function display_signout(){
         input_div.style.display = "none";
         chat_div.style.display = "none";
         img_tag.style.display = "none";
-        username.style.display = "none";
+        //username.style.display = "none";
 }
 
 function display_img(user){
@@ -103,7 +119,7 @@ function display_img(user){
     
     img_tag.src = img_link;
 
-    username.textContent = user.displayName;
+   // username.textContent = user.displayName;
     
 
     
@@ -118,7 +134,7 @@ signin_btn.addEventListener("click" ,()=>{
         console.log("success");
         display_signin();
         display_img(user);
-        
+        console.log(result);
         
     })
     .catch((error)=>{
@@ -152,6 +168,7 @@ window.onload = ()=>{
         
         display_signin();
         display_img(user);
+        load_oldmsg();
         }
         else{
     
@@ -172,3 +189,22 @@ send_msg_btn.addEventListener("click" ,()=>{
 })
 
 trying();
+
+// index.js
+// done using chatgpt 
+// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    const paragraphs = document.querySelectorAll('#chat_div p');
+    const input = document.getElementById("input_msg");
+    input.classList.toggle('dark-mode');
+    paragraphs.forEach((p) => {
+        p.classList.toggle('dark-mode');
+    })
+  }
+  
+  // Add event listener to the dark mode toggle button
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  darkModeToggle.addEventListener('click', toggleDarkMode);
+  
