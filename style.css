@@ -11,6 +11,8 @@ did this css using chat gpt */
 body {
     background-color: #ffffff;
     color: #000000;
+
+    max-width: 400px;
   }
   
 .dark-mode {
@@ -21,10 +23,7 @@ body {
     background-color: #444444;
     color: #ffffff;
   }
-body, div, p {
-    margin: 0;
-    padding: 0;
-  }
+
   
   /* Center the content vertically and horizontally */
   html, body {
@@ -131,5 +130,11 @@ body, div, p {
     button{
 
         padding: 1px;
+    }
+
+    #input_div{
+
+      padding: none;
+     
     }
 }

@@ -1,20 +1,24 @@
 //firebase auth 
 
 import { initializeApp  } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+
+
 import {getAuth,onAuthStateChanged,signInWithPopup,  GoogleAuthProvider , createUserWithEmailAndPassword , signInWithEmailAndPassword , signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
 import { getDatabase , ref ,push , query,limitToLast, set, get , onValue , onChildChanged ,onChildAdded, update} from 'https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js'
 
+import {apiKey , authDomain , projectId ,storageBucket , messagingSenderId, appId , measurementId ,databaseURL}  from "./info.js"
+
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBIbRFofcWrkdjbq0y66RCFE3WZyCDrdfE",
-    authDomain: "chat-23fe4.firebaseapp.com",
-    projectId: "chat-23fe4",
-    storageBucket: "chat-23fe4.appspot.com",
-    messagingSenderId: "493468911945",
-    appId: "1:493468911945:web:077e9067658640a9fcf298",
-    measurementId: "G-9NH4NRGGP1",
-    databaseURL:"https://chat-23fe4-default-rtdb.firebaseio.com"
+    apiKey: apiKey,
+    authDomain: authDomain,
+    projectId: projectId,
+    storageBucket: storageBucket,
+    messagingSenderId: messagingSenderId,
+    appId: appId,
+    measurementId: measurementId,
+    databaseURL: databaseURL,
   };
 const app = initializeApp(firebaseConfig);  
 const auth = getAuth(app);
@@ -58,10 +62,12 @@ function chat(user ){
 
 }
 
+
 function trying(){
 
     const newref1 = ref(db, "/allmessages");
-    const que = query(ref(db, "/allmessages"), limitToLast(1))
+    const que = query(ref(db, "/allmessages"), limitToLast(1));
+    
     
     onValue(que,(snapshot)=>{
 
@@ -79,7 +85,7 @@ function trying(){
 
 function load_oldmsg(){
 
-    const newref1 = query(ref(db, "/allmessages"), limitToLast(30));
+    const newref1 = query(ref(db, "/allmessages"), limitToLast(5));
     get(newref1)
     .then((promise)=>{
 
@@ -134,7 +140,13 @@ signin_btn.addEventListener("click" ,()=>{
         console.log("success");
         display_signin();
         display_img(user);
-        console.log(result);
+
+        var user_joined = document.createElement("p");
+
+        user_joined.textContent = user.displayName + "joined the chat";
+
+        chat_div.appendChild(user_joined);
+        //console.log(result);
         
     })
     .catch((error)=>{
